@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SMART MESS // MEAL PLANNER</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="dot"></span> SMART&nbsp;MESS</div>
+    <div id="userBox" class="userbox hidden">
+      <span id="userLabel"></span>
+      <button id="logoutBtn" class="pill ghost">Log out</button>
+    </div>
+  </header>
+
+  <!-- LOGIN -->
+  <section id="loginView" class="view center">
+    <div class="card login-card">
+      <h1>SIGN&nbsp;IN</h1>
+      <p class="muted">Role-based access // student · kitchen · warden · ngo</p>
+      <label>Email <input id="email" type="email" placeholder="asha@campus.edu" /></label>
+      <label>Password <input id="password" type="password" placeholder="student123" /></label>
+      <button id="loginBtn" class="pill primary">Log in →</button>
+      <p id="loginError" class="error"></p>
+      <details class="demo">
+        <summary>Demo accounts</summary>
+        <ul>
+          <li>STUDENT — asha@campus.edu / student123</li>
+          <li>KITCHEN — kitchen@campus.edu / kitchen123</li>
+          <li>WARDEN — warden@campus.edu / warden123</li>
+          <li>NGO — ngo@foodbank.org / ngo123</li>
+        </ul>
+      </details>
+    </div>
+  </section>
+
+  <!-- STUDENT -->
+  <section id="studentView" class="view hidden">
+    <h2>Your&nbsp;Meals</h2>
+    <p class="muted">Mark each meal before cutoff // skip early = less waste</p>
+    <div id="studentMeals" class="grid"></div>
+
+    <div class="marquee"><div class="track a" id="mq1"></div></div>
+
+    <h2>Menu&nbsp;Vote</h2>
+    <div class="row">
+      <button class="pill ghost vote" data-opt="Biryani night">Vote · Biryani night</button>
+      <button class="pill ghost vote" data-opt="Pasta Friday">Vote · Pasta Friday</button>
+      <button class="pill ghost vote" data-opt="Dosa special">Vote · Dosa special</button>
+    </div>
+    <div id="voteResults" class="muted"></div>
+  </section>
+
+  <!-- KITCHEN -->
+  <section id="kitchenView" class="view hidden">
+    <h2>Predicted&nbsp;Headcount</h2>
+    <p class="muted">Moving average of attendance // adjusted for advance responses</p>
+    <div id="predictTable"></div>
+    <h2>Log&nbsp;Consumption</h2>
+    <div id="consumptionForms" class="grid"></div>
+    <div id="kitchenMsg" class="muted"></div>
+  </section>
+
+  <!-- WARDEN -->
+  <section id="wardenView" class="view hidden">
+    <h2>Waste&nbsp;Report</h2>
+    <div id="wasteSummary" class="summary"></div>
+    <div id="wasteTable"></div>
+    <h2>Leaderboard</h2>
+    <div id="leaderboard"></div>
+    <h2>Complaints</h2>
+    <div id="feedbackList"></div>
+  </section>
+
+  <!-- NGO -->
+  <section id="ngoView" class="view hidden">
+    <h2>Surplus&nbsp;Alerts</h2>
+    <p class="muted">Accept an available pickup // then confirm receipt once collected</p>
+    <div id="surplusList" class="grid"></div>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>

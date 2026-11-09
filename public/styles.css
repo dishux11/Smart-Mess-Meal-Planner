@@ -1,0 +1,144 @@
+/* ============================================================
+   KINETIC ORANGE — digital-first brutalist theme
+   Orange #FF4D00 · Black #000 · White #FFF
+   Archivo Black (display) · Space Mono (labels) · Inter (body)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700&display=swap');
+
+:root{
+  --orange:#FF4D00; --black:#000; --white:#FFF;
+  --line:#000;
+  --mono:'Space Mono',monospace;
+  --display:'Archivo Black',sans-serif;
+  --body:'Inter',system-ui,sans-serif;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--orange);
+  color:var(--black);
+  font-family:var(--body);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:var(--black);color:var(--orange)}
+
+h1,h2,h3{font-family:var(--display);text-transform:uppercase;letter-spacing:-0.04em;line-height:0.88;margin:0}
+.mono{font-family:var(--mono);letter-spacing:-0.02em;text-transform:uppercase}
+.muted{font-family:var(--mono);font-size:12px;letter-spacing:-0.02em;color:var(--black);opacity:.7;text-transform:uppercase;margin:6px 0 16px}
+.hidden{display:none !important}
+.error{font-family:var(--mono);font-size:12px;color:var(--black);min-height:16px;text-transform:uppercase}
+a{color:inherit}
+
+/* ---------- Floating pill navigation ---------- */
+.topbar{
+  position:sticky;top:0;z-index:50;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:16px 24px;background:var(--orange);
+  border-bottom:2px solid var(--black);
+}
+.brand{font-family:var(--display);text-transform:uppercase;font-size:16px;letter-spacing:-0.04em;display:flex;align-items:center;gap:10px}
+.dot{
+  width:16px;height:16px;border:2px solid var(--black);border-radius:50%;
+  border-top-color:transparent;animation:spin 12s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.userbox{display:flex;align-items:center;gap:14px}
+.userbox #userLabel{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:-0.02em;
+  background:var(--black);color:var(--white);padding:7px 14px;border-radius:9999px}
+
+/* ---------- Layout ---------- */
+.view{max-width:1120px;margin:0 auto;padding:28px 24px 80px}
+.center{min-height:82vh;display:flex;align-items:center;justify-content:center}
+
+h2{font-size:7vw;margin:36px 0 2px}
+@media(min-width:900px){h2{font-size:52px}}
+
+/* ---------- Buttons / pills ---------- */
+.pill{
+  font-family:var(--mono);text-transform:uppercase;letter-spacing:-0.02em;font-size:13px;font-weight:700;
+  border:2px solid var(--black);background:var(--white);color:var(--black);
+  padding:11px 20px;border-radius:9999px;cursor:pointer;
+  transition:transform .18s ease,background .18s ease,color .18s ease;
+}
+.pill:hover:not(:disabled){transform:translateX(6px) scale(1.04)}
+.pill.primary{background:var(--black);color:var(--orange);width:100%;margin-top:20px}
+.pill.primary:hover{transform:scale(1.04)}
+.pill.dark{background:var(--black);color:var(--white)}
+.pill.ghost{background:transparent}
+.pill.ghost:hover{background:var(--black);color:var(--orange)}
+.pill:disabled{opacity:.35;cursor:not-allowed}
+.row{display:flex;gap:12px;flex-wrap:wrap;margin:12px 0}
+
+/* ---------- Login card ---------- */
+.card{background:var(--white);border:2px solid var(--black);padding:26px}
+.login-card{width:380px}
+.login-card h1{font-size:40px;margin-bottom:6px}
+.login-card label{display:block;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:-0.02em;margin:16px 0 0}
+.login-card input{width:100%;margin-top:7px;padding:12px;border:2px solid var(--black);background:var(--white);
+  font-family:var(--mono);font-size:14px}
+.login-card input:focus{outline:none;background:var(--orange)}
+.demo{margin-top:18px;font-family:var(--mono);font-size:11px;text-transform:uppercase}
+.demo summary{cursor:pointer;font-weight:700}
+.demo ul{margin:10px 0 0;padding-left:16px;line-height:1.9;list-style:none}
+.demo li::before{content:'▸ ';color:var(--orange)}
+
+/* ---------- Marquee ---------- */
+.marquee{
+  background:var(--black);overflow:hidden;transform:skewY(-2deg);
+  margin:0 -40px;padding:22px 0;border-top:2px solid var(--black);border-bottom:2px solid var(--black);
+}
+.marquee .track{display:flex;white-space:nowrap;will-change:transform}
+.marquee .track span{font-family:var(--display);text-transform:uppercase;font-size:9vw;padding:0 28px;
+  color:var(--orange);line-height:1}
+.marquee.rev .track span{color:var(--white);opacity:.8}
+.marquee .track.a{animation:scrollL 22s linear infinite}
+.marquee .track.b{animation:scrollR 26s linear infinite}
+@keyframes scrollL{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes scrollR{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+
+/* ---------- Grids & cards ---------- */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:0;
+  border-top:2px solid var(--black);border-left:2px solid var(--black)}
+.meal{background:var(--white);border-right:2px solid var(--black);border-bottom:2px solid var(--black);
+  padding:20px;transition:background .18s ease}
+.meal:hover{background:#fff7f3}
+.meal h3{font-size:22px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.meal .date{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:-0.02em;opacity:.7;margin-top:4px}
+.meal .menu{font-size:14px;margin:10px 0;font-weight:500}
+
+/* tags / badges */
+.badge{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:-0.02em;
+  text-transform:uppercase;padding:4px 10px;border:2px solid var(--black)}
+.badge.eating{background:var(--orange);color:var(--black)}
+.badge.skipping{background:var(--black);color:var(--white)}
+.badge.closed{background:var(--white);color:var(--black);opacity:.6}
+.badge.warn{background:var(--orange);color:var(--black)}
+
+/* ---------- Tables (brutalist) ---------- */
+.tablewrap{border:2px solid var(--black);overflow-x:auto}
+table{width:100%;border-collapse:collapse;background:var(--white);font-size:13px}
+th,td{text-align:left;padding:12px 14px;border-bottom:2px solid var(--black)}
+th{background:var(--black);color:var(--orange);font-family:var(--mono);font-size:11px;
+  text-transform:uppercase;letter-spacing:-0.02em}
+tr:last-child td{border-bottom:none}
+td b{font-family:var(--display);font-size:15px}
+.hw{color:var(--orange);font-family:var(--display)}
+
+/* ---------- Warden stats ---------- */
+.summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:0;
+  border-top:2px solid var(--black);border-left:2px solid var(--black);margin:10px 0 18px}
+.stat{background:var(--black);color:var(--white);border-right:2px solid var(--black);border-bottom:2px solid var(--black);
+  padding:18px 20px}
+.stat .n{font-family:var(--display);font-size:34px;color:var(--orange);line-height:1}
+.stat .l{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:-0.02em;margin-top:6px;opacity:.85}
+
+/* ---------- Feedback / forms inside cards ---------- */
+label.inline{font-family:var(--mono);font-size:11px;text-transform:uppercase;display:flex;flex-direction:column;gap:5px;margin-top:10px}
+label.inline input{padding:9px 10px;border:2px solid var(--black);font-family:var(--mono);background:var(--white)}
+.stars{font-size:22px;cursor:pointer;color:var(--black);opacity:.3;user-select:none;letter-spacing:2px}
+.stars span.on{color:var(--orange);opacity:1}
+
+#kitchenMsg,#voteResults{font-family:var(--mono);font-size:12px;text-transform:uppercase;margin-top:14px}

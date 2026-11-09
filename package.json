@@ -1,0 +1,38 @@
+{
+  "name": "smart-mess-meal-planner",
+  "version": "1.0.0",
+  "description": "Web-based Smart Mess Meal Planner — reduce campus mess food waste via advance opt-in/opt-out, headcount prediction, leftover logging and NGO surplus pickup.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "jest --runInBand --forceExit",
+    "test:unit": "jest tests/prediction.test.js",
+    "test:api": "jest tests/api.test.js --runInBand --forceExit",
+    "selenium": "node tests/selenium.login_optin.js",
+    "lint": "echo \"(no linter configured)\" && exit 0"
+  },
+  "keywords": [
+    "mess",
+    "food-waste",
+    "sdg",
+    "scrum",
+    "prediction"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0",
+    "selenium-webdriver": "^4.24.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/prediction.js"
+    ]
+  }
+}
